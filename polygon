@@ -1,0 +1,63 @@
+import java.util.Scanner;
+
+// Base class
+class Polygon {
+    double area;
+
+    void display() {
+        System.out.println("Area = " + area);
+    }
+}
+
+// Rectangle class
+class Rectangle extends Polygon {
+    void calculateArea(double length, double width) {
+        area = length * width;
+    }
+}
+
+// Square class
+class Square extends Polygon {
+    void calculateArea(double side) {
+        area = side * side;
+    }
+}
+
+// Triangle class
+class Triangle extends Polygon {
+    void calculateArea(double base, double height) {
+        area = 0.5 * base * height;
+    }
+}
+
+// Main class
+public class PolygonInheritance {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Rectangle
+        Rectangle r = new Rectangle();
+        System.out.print("Enter length and width of rectangle: ");
+        double l = sc.nextDouble();
+        double w = sc.nextDouble();
+        r.calculateArea(l, w);
+        r.display();
+
+        // Square
+        Square s = new Square();
+        System.out.print("Enter side of square: ");
+        double side = sc.nextDouble();
+        s.calculateArea(side);
+        s.display();
+
+        // Triangle
+        Triangle t = new Triangle();
+        System.out.print("Enter base and height of triangle: ");
+        double b = sc.nextDouble();
+        double h = sc.nextDouble();
+        t.calculateArea(b, h);
+        t.display();
+
+        sc.close();
+    }
+}
